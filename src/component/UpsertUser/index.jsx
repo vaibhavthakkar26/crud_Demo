@@ -38,14 +38,13 @@ function UpsertUser(props) {
 
   useEffect(() => {
     if (props.id) {
-      if (props.userList.item[0]) {
-        UserData(props.userList.item[0]);
+      if (props.userList.Edituser[0]) {
+        UserData(props.userList.Edituser[0]);
       }
     }
-  }, [props.id]);
+  }, [props?.userList?.Edituser]);
 
   const UserData = (data) => {
-    console.log("data", data);
     const Data = data;
     setName(Data.name);
     setEmailAddress(Data.email);

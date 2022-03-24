@@ -1,7 +1,6 @@
 const UserReducer = (state = "", action) => {
   switch (action.type) {
     case "ADD_USER_DATA":
-      console.log("state", state);
       return {
         ...state,
         item: [...state.item, action.payload],
@@ -14,18 +13,17 @@ const UserReducer = (state = "", action) => {
       };
 
     case "EDIT_USER_DATA":
-      let userDetail = state.item.filter((user) => user._id == action.payload);
+      let userDetail = state.item.filter((user) => user._id === action.payload);
       return {
         ...state,
         Edituser: userDetail,
       };
 
     case "UPDATE_USER_DATA":
-      console.log("action", action.payload.id);
       return {
         ...state,
         item: state.item.map((user) =>
-          user._id == action.payload.id ? action.payload : user
+          user._id === action.payload.id ? action.payload : user
         ),
       };
 
